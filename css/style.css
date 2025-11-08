@@ -1,0 +1,66 @@
+/* style.css — VoltZone (agresivo, verde eléctrico + negro) */
+/* ... (truncated for brevity in this creation, full content will be written below) */
+:root{
+  --bg-dark: #000000;
+  --green-neo: #00ff7a;
+  --glass: rgba(0,0,0,0.55);
+  --card-bg: rgba(0,0,0,0.45);
+  --text: #e6ffe9;
+  --pulse-speed: 6s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:Inter, Poppins, system-ui, sans-serif;background:var(--bg-dark);color:var(--text);-webkit-font-smoothing:antialiased}
+.container{width:92%;max-width:1200px;margin:0 auto}
+.bg-animated { position:fixed; inset:0; z-index:-10;
+  background: radial-gradient(ellipse at 20% 20%, rgba(0,255,122,0.08) 0%, rgba(0,255,122,0.03) 8%, transparent 20%),
+              radial-gradient(ellipse at 80% 80%, rgba(0,200,100,0.06) 0%, transparent 20%),
+              linear-gradient(180deg, var(--bg-dark) 0%, #00110a 40%, #001a0f 60%, var(--bg-dark) 100%);
+  background-size: 200% 200%; animation: bgPulse var(--pulse-speed) ease-in-out infinite; filter: saturate(1.15) contrast(1.05);
+}
+@keyframes bgPulse{0%{background-position:0% 0%}25%{background-position:10% 100%}50%{background-position:100% 50%}75%{background-position:60% 0%}100%{background-position:0% 0%}}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 6px;position:sticky;top:0;z-index:40;backdrop-filter: blur(6px);background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.18));border-bottom: 1px solid rgba(0,255,122,0.04);}
+.brand{display:flex;gap:14px;align-items:center;cursor:default}
+.logo{width:46px;height:46px;border-radius:10px;flex:0 0 46px;background: linear-gradient(135deg, rgba(0,255,122,0.14), rgba(0,200,100,0.06));display:flex;align-items:center;justify-content:center;box-shadow: 0 6px 18px rgba(0,255,122,0.06);font-weight:800;color:var(--green-neo);font-size:18px}
+.nav-links{display:flex;gap:10px;align-items:center}
+.nav-links a{padding:8px 12px;border-radius:8px;font-weight:700;font-size:14px;color:rgba(230,255,233,0.92);transition:transform .18s ease, box-shadow .18s ease}
+.hamburger{display:none;width:42px;height:42px;align-items:center;justify-content:center;border-radius:8px;cursor:pointer;background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.02)}
+.hero{margin:32px auto 24px;padding:36px;border-radius:14px;background: linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.36));box-shadow: 0 20px 60px rgba(0,0,0,0.6);text-align:center;position:relative;overflow:visible;border:1px solid rgba(0,255,122,0.06)}
+.hero .title{font-size:44px;font-weight:900;letter-spacing:1px;color:var(--green-neo);text-transform:uppercase;margin-bottom:6px;text-shadow: 0 4px 18px rgba(0,255,122,0.14), 0 0 40px rgba(0,255,122,0.06);transform-origin:center;animation: titleBoff 1s ease both}
+.hero .subtitle{font-size:16px;color:rgba(230,255,233,0.85);margin-top:6px;opacity:0;transform:translateY(10px) scale(.98);animation: subtitleIn .9s ease .45s both}
+@keyframes titleBoff{0% { opacity:0; transform: scale(.7) rotate(-4deg) translateY(-18px); filter:blur(1px)}30% { transform: scale(1.06) rotate(2deg) translateY(0px); opacity:1; filter:blur(0)}60% { transform: scale(.98) rotate(-1deg) translateY(2px) }100% { transform: scale(1) rotate(0) translateY(0) }}
+@keyframes subtitleIn{from{opacity:0; transform:translateY(8px) scale(.98)}to{opacity:1; transform:translateY(0) scale(1)}}
+.products{display:grid;gap:18px;grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));margin-top:22px}
+.card{background:var(--card-bg);border-radius:12px;padding:12px;overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;border:1px solid rgba(0,255,122,0.03);transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease;position:relative}
+.card .media{width:100%;height:160px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;position:relative}
+.card .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: radial-gradient(circle, rgba(0,255,122,0.05), transparent);
+  transform-origin: center;
+  transition: transform .45s ease;
+}
+
+.card .media::before{content:"";position:absolute;inset:0;pointer-events:none;background: linear-gradient(90deg, transparent 0%, rgba(0,255,122,0.06) 40%, rgba(0,255,122,0.12) 60%, transparent 100%);transform: translateX(-120%);filter: blur(14px);transition: transform .9s linear}
+.card h3{font-size:18px;color:var(--green-neo);letter-spacing:0.6px}
+.card p.short{font-size:13px;color:rgba(230,255,233,0.86);min-height:42px;text-align:center}
+.card .price{font-weight:800;margin-top:4px;color:var(--text)}
+.card:hover, .card.hover{transform: translateY(-8px) scale(1.01);box-shadow: 0 30px 80px rgba(0,255,122,0.06), 0 6px 30px rgba(0,0,0,0.6);border-color: rgba(0,255,122,0.14)}
+.card:hover .media, .card.hover .media{transform: translateY(-6px) scale(1.03);box-shadow: 0 10px 40px rgba(0,255,122,0.12), 0 2px 8px rgba(0,0,0,0.6);filter: saturate(1.15) contrast(1.05)}
+.card:hover .media::before, .card.hover .media::before{transform: translateX(140%);transition-duration: .6s}
+.badge{margin-top:6px;padding:8px 12px;border-radius:8px;background: linear-gradient(90deg, rgba(0,255,122,0.06), rgba(0,255,122,0.02));border:1px solid rgba(0,255,122,0.08);font-weight:800;color:var(--green-neo);display:inline-block;font-size:13px}
+.btn{margin-top:8px;padding:10px 14px;border-radius:10px;font-weight:800;border:none;cursor:pointer;background:transparent;color:var(--text);border:1px solid rgba(0,255,122,0.08);transition: transform .18s ease, box-shadow .18s ease, background .18s}
+.btn:hover{ transform:translateY(-3px); box-shadow: 0 8px 30px rgba(0,255,122,0.06); background: rgba(0,255,122,0.03) }
+/* Popup detail */
+.popwrap{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:120; }
+.popwrap.show{ display:flex; }
+.popback{ position:absolute; inset:0; background:rgba(0,0,0,0.6); backdrop-filter: blur(2px); transition: opacity .25s ease; }
+.popup{ width:90%; max-width:900px; background:linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.85)); border-radius:12px; padding:18px; position:relative; box-shadow: 0 40px 120px rgba(0,0,0,0.7); border:1px solid rgba(0,255,122,0.12); transform:scale(.9) translateY(20px); opacity:0; transition: all .28s cubic-bezier(.2,.9,.3,1) }
+.popwrap.show .popup{ transform:scale(1) translateY(0); opacity:1; }
+.popup .content{ display:flex; gap:14px; align-items:flex-start }
+.popup .media{ flex:0 0 48%; height:320px; border-radius:10px; overflow:hidden }
+.popup .media img{ width:100%; height:100%; object-fit:cover; }
+.popup .info{ flex:1; color:rgba(230,255,233,0.95) }
+.popup h3{ color:var(--green-neo); margin-bottom:8px }
+.pclose{ position:absolute; right:12px; top:12px; border-radius:8px; padding:8px 10px; background:transparent; border:1px solid rgba(0,255,122,0.08); cursor:pointer; color:var(--text) }
+@media (max-width:900px){ .hero .title{font-size:34px} .hero{padding:22px} .nav-links{display:none} .hamburger{display:flex} .popup .content{ flex-direction:column } .popup .media{ height:220px; width:100% } }

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VoltZone — Inicio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-animated" aria-hidden="true"></div>
+  <header class="topbar container" role="banner">
+    <div class="brand">
+      <div class="logo">VZ</div>
+      <div><h1>VoltZone</h1><p>Potencia tu sistema — hardware ficticio</p></div>
+    </div>
+    <nav class="nav-links" role="navigation"><a href="index.html">Inicio</a><a href="pc.html">PC</a><a href="laptop.html">Laptop</a><a href="disco.html">Disco Duro</a></nav>
+    <button class="hamburger" id="hambtn"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+  </header>
+
+  <main class="container">
+    <section class="hero"><div class="title">💀 VoltZone</div><div class="subtitle">Potencia tu sistema con la mejor tecnología. — Componentes ficticios.</div></section>
+
+    <section><h2 style="font-size:20px;color:var(--green-neo)">PC Armadas</h2>
+      <div class="products">
+        <article class="card" tabindex="0"><div class="media"><img src="img/pc1.png" alt="Nebula 5000"><div class="electric"></div></div><h3>Nebula 5000</h3><p class="short">Estación gamer con refrigeración líquida y fuente modular.</p><div class="badge">Stock limitado</div><div class="price">$3.499.000</div><button class="btn">Ver detalle</button></article>
+        <article class="card" tabindex="0"><div class="media"><img src="img/pc2.png" alt="Phantom Core"><div class="electric"></div></div><h3>Phantom Core</h3><p class="short">PC orientada a creación de contenido con alto rendimiento.</p><div class="badge">Envío inmediato</div><div class="price">$2.699.000</div><button class="btn">Ver detalle</button></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">© VoltZone — Proyecto De Pregrado</footer>
+
+  <!-- popup markup -->
+  <div id="popwrap" class="popwrap" aria-hidden="true">
+    <div id="popback" class="popback"></div>
+    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="poptitle">
+      <button id="popclose" class="pclose">Cerrar ✖</button>
+      <div class="content">
+        <div class="media"><img id="popimg" src="" alt=""></div>
+        <div class="info"><h3 id="poptitle"></h3><div id="popprice" style="font-weight:800;margin-bottom:8px"></div><p id="popdesc"></p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
